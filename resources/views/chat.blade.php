@@ -7,6 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Chatroom
+                        <span id="room_id" display="hidden">{{$room_id}}</span>
                         <span class="badge pull-right">@{{ usersInRoom.length }}</span>
                     </div>
 

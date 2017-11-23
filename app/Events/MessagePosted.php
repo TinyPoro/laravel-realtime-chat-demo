@@ -49,6 +49,6 @@ class MessagePosted implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('chatroom');
+        return new PresenceChannel('App.Room.'.$this->message->room_id);
     }
 }

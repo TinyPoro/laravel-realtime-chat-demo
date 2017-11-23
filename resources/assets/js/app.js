@@ -30,7 +30,7 @@ const app = new Vue({
             this.messages.push(message);
 
             // Persist to the database etc
-            axios.post('/messages', message).then(response => {
+            axios.post('/messages/' + message.room_id, message).then(response => {
                 // Do whatever;
             })
         }
@@ -40,7 +40,9 @@ const app = new Vue({
             this.messages = response.data;
         });
 
-        Echo.join('chatroom')
+        var room_id = $('#room_id').text();
+
+        Echo.join('App.Room.' + room_id)
             .here((users) => {
                 this.usersInRoom = users;
             })
@@ -53,7 +55,8 @@ const app = new Vue({
             .listen('MessagePosted', (e) => {
                 this.messages.push({
                     message: e.message.message,
-                    user: e.user
+                    user: e.user,
+                    room_id: e.message.room_id
                 });
             });
     }

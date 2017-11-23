@@ -1,13 +1,22 @@
 <template lang="html">
-  <div class="chat-message">
-    <p>{{ message.message }}</p>
-    <small>{{ message.user.name }}</small>
+  <div class="chat-message" v-show="check() === true">
+    <p >{{ mess.message }}</p>
+        <small>{{ mess.user.name }}</small>
   </div>
 </template>
 
 <script>
 export default {
-    props: ['message']
+    props: ['mess'],
+    methods: {
+        check() {
+            var room_id = $('#room_id').text();
+
+            if(this.mess.room_id == room_id) return true;
+
+            return false;
+        }
+    }
 }
 </script>
 

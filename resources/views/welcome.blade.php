@@ -79,15 +79,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Chat Poro
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    @foreach ($rooms as $room)
+                        <a href="http://127.0.0.1:8000/chat/{{$room->name}}">{{$room->name}}</a>
+                    @endforeach
                 </div>
             </div>
         </div>
