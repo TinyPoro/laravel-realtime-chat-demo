@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 
     <!-- Scripts -->
     <script>
@@ -30,6 +31,15 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+        }
+        
+        #user_id{
+            display :none;
+        }
+        #composer{
+            position:fixed;
+            bottom: 10px;
+            right: 15px;
         }
     </style>
 </head>
@@ -66,6 +76,7 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+                            <p id="user_id">{{ Auth::user()->id }}</p>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -91,12 +102,16 @@
             </div>
         </nav>
         <div class="links">
+            @if(isset($rooms))
             @foreach ($rooms as $room)
-                <a href="http://127.0.0.1:8000/chat/{{$room->name}}">{{$room->name}}</a>
+                <a href="{{$room->name}}">{{$room->name}}</a>
             @endforeach
+            @endif
         </div>
+      
         @yield('content')
     </div>
+    
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>

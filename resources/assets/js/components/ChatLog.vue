@@ -1,9 +1,8 @@
 <template lang="html">
   <div class="chat-log">
-        <!--<div>{{ test }}</div>-->
       <chat-message v-for="message in messages" :mess="message" :key="message.id"></chat-message>
 
-      <div class="empty" v-show="count() === 0">
+      <div class="empty" v-show="messages.length === 0">
           Nothing here yet!
       </div>
 
@@ -15,16 +14,6 @@
 export default {
     props: ['messages'],
     methods: {
-        count() {
-            var room_id = $('#room_id').text();
-            var n = 0;
-
-            this.messages.forEach(function(m) {
-                if(m.room_id == room_id) n++;
-            })
-
-            return n;
-        }
     }
 }
 </script>

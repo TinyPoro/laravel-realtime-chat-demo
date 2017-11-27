@@ -84,7 +84,7 @@
 
                 <div class="links">
                     @foreach ($rooms as $room)
-                        <a href="http://127.0.0.1:8000/chat/{{$room->name}}">{{$room->name}}</a>
+                        <a href="chat/{{$room->name}}">{{$room->name}}</a>
                     @endforeach
                 </div>
             </div>

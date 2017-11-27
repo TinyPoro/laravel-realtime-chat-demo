@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Chat Poro',
 
     /*
     |--------------------------------------------------------------------------
@@ -123,6 +123,9 @@ return [
     'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
+    
+    // paginate
+    'paginate' => 10,
 
     /*
     |--------------------------------------------------------------------------
