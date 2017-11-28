@@ -38,10 +38,22 @@ window.axios.defaults.headers.common = {
  */
 
 import Echo from "laravel-echo"
-window.Pusher = require('pusher-js');
+// window.Pusher = require('pusher-js');
+//
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: '1454ce607b9b90fb4c03',
+//     cluster: 'ap1'
+// });
 
 window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: '1454ce607b9b90fb4c03',
-    cluster: 'ap1'
+    broadcaster: 'socket.io',
+    host: 'http://chat.dev:6001',
+    auth:
+        {
+            headers:
+                {
+                    'Authorization': 'Bearer ' + "ccc7a7f8e0b1cb0e"
+                }
+        }
 });

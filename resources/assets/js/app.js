@@ -114,7 +114,6 @@ const app = new Vue({
             .listen('MessagePosted', (e) => {
                 var cur_num_page = $('#num_page').text();
                 var max_page = $('#max_page').text();
-                
                 if(cur_num_page == max_page) {
                     if(this.messages.length < 3){
                         this.messages.push({
